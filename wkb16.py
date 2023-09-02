@@ -12,8 +12,7 @@ import urllib.parse
 import json
 
 cookies = os.getenv("wk16")
-ua = ""
-num = 30  # 循环参数
+num = 29  # 循环参数
 
 
 class DY:
@@ -22,6 +21,7 @@ class DY:
         self.cookie = cookie.split("#")[1]
         self.argus = cookie.split("#")[2]
         self.ladon = cookie.split("#")[3]
+        self.ua = cookie.split("#")[4]
 
     def run(self):
         jbsl = self.user()
@@ -51,7 +51,7 @@ class DY:
     def user(self):
         url = f"https://api5-normal-hl.toutiaoapi.com/luckycat/sj/v1/income/page_data?_request_from=web&{self.url}"
         headers = {
-            'User-Agent': ua,
+            'User-Agent': self.ua,
             'x-argus': self.argus,
             'x-ladon': self.ladon,
             'Cookie': self.cookie,
@@ -79,7 +79,7 @@ class DY:
         url = f"https://api5-normal-lf.toutiaoapi.com/luckycat/gip/v1/daily/sign/done?{self.url}"
         body = "{\"is_double\":false}"
         headers = {
-            'User-Agent': ua,
+            'User-Agent': self.ua,
             'x-argus': self.argus,
             'x-ladon': self.ladon,
             'Cookie': self.cookie,
@@ -105,7 +105,7 @@ class DY:
         url = f"https://api5-normal-lf.toutiaoapi.com/luckycat/gip/v1/daily/hot_board/done?{self.url}"
         body = "{\"search_position\":\"tab_gold_task\"}"
         headers = {
-            'User-Agent': ua,
+            'User-Agent': self.ua,
             'x-argus': self.argus,
             'x-ladon': self.ladon,
             'Cookie': self.cookie,
@@ -131,7 +131,7 @@ class DY:
         url = f"https://api5-normal-lf.toutiaoapi.com/luckycat/gip/v:version/daily/video_reading/done?{self.url}"
         body = "body=null"
         headers = {
-            'User-Agent': ua,
+            'User-Agent': self.ua,
             'x-argus': self.argus,
             'x-ladon': self.ladon,
             'Cookie': self.cookie,
@@ -159,7 +159,7 @@ class DY:
             url = f"https://api5-normal-lf.toutiaoapi.com/luckycat/gip/v1/daily/eat/done?{self.url}"
             body = "{}"
             headers = {
-                'User-Agent': ua,
+                'User-Agent': self.ua,
                 'x-argus': self.argus,
                 'x-ladon': self.ladon,
                 'Cookie': self.cookie,
@@ -187,7 +187,7 @@ class DY:
     def treasure_box(self):
         url = f"https://api5-normal-lf.toutiaoapi.com/luckycat/gip/v1/daily/treasure_box/detail?{self.url}"
         headers = {
-            'User-Agent': ua,
+            'User-Agent': self.ua,
             'x-argus': self.argus,
             'x-ladon': self.ladon,
             'Cookie': self.cookie,
@@ -205,7 +205,7 @@ class DY:
                 url = f"https://api5-normal-lf.toutiaoapi.com/luckycat/gip/v1/daily/treasure_box/done?{self.url}"
                 body = "{\"auto_open\":false}"
                 headers = {
-                    'User-Agent': ua,
+                    'User-Agent': self.ua,
                     'x-argus': self.argus,
                     'x-ladon': self.ladon,
                     'Cookie': self.cookie,
@@ -229,7 +229,7 @@ class DY:
         url = f"https://api5-normal-hl.toutiaoapi.com/luckycat/gip/v1/cooperate/exciad/done?{self.url}"
         body = "{\"task_id\":4108,\"exci_extra\":{\"cid\":1572200687669348,\"req_id\":\"20230701160644C93FF92F37A3A1714A5C\",\"rit\":80047},\"extra\":{\"stage_score_amount\":[],\"track_id\":\"\",\"draw_score_amount\":null,\"draw_track_id\":null,\"task_id\":\"\",\"task_name\":\"\",\"enable_fuzzy_amount\":false,\"custom_id\":null}}"
         headers = {
-            'User-Agent': ua,
+            'User-Agent': self.ua,
             'x-argus': self.argus,
             'x-ladon': self.ladon,
             'Cookie': self.cookie,
