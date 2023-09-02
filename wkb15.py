@@ -1,8 +1,9 @@
 
+
 """
 # -*- coding:utf-8 -*- 
-  cron: 30 8-11 * * *
-  new Env('WKB16'); 
+  cron: 0 20-23 * * *
+  new Env('WKB15'); 
 """
 import os
 import requests
@@ -11,7 +12,7 @@ import time
 import urllib.parse
 import json
 
-cookies = os.getenv("wk16")
+cookies = os.getenv("wk15")
 num = 29  # 循环参数
 
 
